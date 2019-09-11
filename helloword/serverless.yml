@@ -22,5 +22,11 @@ functions:
           path: hello-world
           method: get
           cors: true
+  sum:
+    handler: handler.sum
+    events:
+      - http:
+          path: sum/{num1}/{num2}
+          method: get
 plugins:
   - serverless-offline
