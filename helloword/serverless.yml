@@ -33,6 +33,12 @@ functions:
     events:
       - http:
           path: divide
-          method: get     
+          method: get 
+  calculator:
+    handler: handler.calculator
+    events:
+      - http:
+          path: /calc/{any+}
+          method: get    
 plugins:
   - serverless-offline

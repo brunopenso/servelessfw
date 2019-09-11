@@ -14,11 +14,6 @@ module.exports.helloWorld = (event, context, callback) => {
   callback(null, response);
 };
 
-//event.httpMethod
-//event.headers.<nameOfHeaders>
-//event.path
-//event.pathParameters.<name>
-//event.queryStringParameters
 module.exports.sum = (event, context, callback) => {
   var num1 = Number(event.pathParameters.num1);
   var num2 = Number(event.pathParameters.num2);
@@ -83,3 +78,20 @@ module.exports.divide = (event, context, callback) => {
   }
   callback (null, response);
 };
+//event.httpMethod
+//event.headers.<nameOfHeaders>
+//event.path
+//event.pathParameters.<name>
+//event.queryStringParameters
+module.exports.calculator = (event, context, callback) => {
+  const response = {
+    statusCode: 200,
+    body: JSON.stringify({
+        httpMethod: event.httpMethod,
+        path: event.path,
+        pathParams: event.pathParameters
+    })
+  }
+
+  callback(null, response);
+}
