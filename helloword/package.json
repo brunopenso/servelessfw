@@ -4,7 +4,7 @@
   "version": "0.1.0",
   "dependencies": {
     "eslint": "^6.3.0",
-    "serverless": "1.51.0"
+    "serverless": "^1.51.0"
   },
   "devDependencies": {
     "serverless-offline": "5.10.1"
