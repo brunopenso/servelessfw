@@ -28,5 +28,11 @@ functions:
       - http:
           path: sum/{num1}/{num2}
           method: get
+  divide:
+    handler: handler.divide
+    events:
+      - http:
+          path: divide
+          method: get     
 plugins:
   - serverless-offline
