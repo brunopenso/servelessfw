@@ -84,14 +84,17 @@ module.exports.divide = (event, context, callback) => {
 //event.pathParameters.<name>
 //event.queryStringParameters
 module.exports.calculator = (event, context, callback) => {
-  const response = {
-    statusCode: 200,
-    body: JSON.stringify({
-        httpMethod: event.httpMethod,
-        path: event.path,
-        pathParams: event.pathParameters
-    })
-  }
+  if (event.resource === "/calc/divide") {
+    callback(null, this.divide(event, context, callback));
+  } else if (event.resource === "/calc/sum/{num1}/{num2}") {
+    callback(null, this.sum(event, context, callback));
+  } else {
+    var response = {
+      statusCode: 200,
+      body: JSON.stringify({event
+      })
+    };
 
-  callback(null, response);
+    callback(null, response);
+  }
 }

@@ -38,7 +38,10 @@ functions:
     handler: handler.calculator
     events:
       - http:
-          path: /calc/{any+}
-          method: get    
+          path: /calc/sum/{num1}/{num2}
+          method: get
+      - http:
+          path: /calc/divide
+          method: get  
 plugins:
   - serverless-offline
