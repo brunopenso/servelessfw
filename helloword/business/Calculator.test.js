@@ -25,3 +25,7 @@ test('param 2 string', () => {
 test('both string', () => {
     expect(calc.MethodSum('3','5')).toBe(8);
 }); 
+
+test('divide 2/2 equals 1', () => {
+    expect(calc.MethodDivide(2,2)).toBe(1);
+})

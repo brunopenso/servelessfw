@@ -58,23 +58,23 @@ module.exports.divide = (event, context, callback) => {
       callback (null, response);
       return;    
   }
-  const n1 = Number(event.queryStringParameters.p1);
-  const n2 = Number(event.queryStringParameters.p2);
+  try {
+    const value = Calculator.MethodDivide(
+        event.queryStringParameters.p1,
+        event.queryStringParameters.p2);
 
-  if (!n1 || !n2) {
+    var response = {
+          statusCode: 200,
+          body: JSON.stringify({result: value})
+        }
+    callback (null, response);
+  } catch (error) {
     const response = {
       statusCode: 400,
-      body: JSON.stringify({result: "Parameters p1 and p2 must be number"})
+      body: JSON.stringify({result: error.toString()})
     }
     callback (null, response);
-    return;    
   }
-
-  var response = {
-    statusCode: 200,
-    body: JSON.stringify({result: n1/n2})
-  }
-  callback (null, response);
 };
 //event.httpMethod
 //event.headers.<nameOfHeaders>

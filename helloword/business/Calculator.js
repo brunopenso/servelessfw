@@ -12,5 +12,12 @@ module.exports.MethodSum = (v1,v2) => {
 }
 
 module.exports.MethodDivide = (v1,v2) => {
-    return v1/v2;
+    const n1 = Number(v1);
+    const n2 = Number(v2);
+  
+    if (!n1 || !n2) {
+        throw new Error("Parameters p1 and p2 must be number");
+    }
+
+    return n1/n2;
 }
