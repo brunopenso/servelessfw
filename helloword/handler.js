@@ -1,4 +1,8 @@
 'use strict';
+//    Validator of json inputs
+//https://github.com/serverless-projects/serverless-unit-test/blob/master/Utils.js
+//
+const Calculator = require('./business/Calculator');
 
 module.exports.helloWorld = (event, context, callback) => {
   const response = {
@@ -15,29 +19,23 @@ module.exports.helloWorld = (event, context, callback) => {
 };
 
 module.exports.sum = (event, context, callback) => {
-  var num1 = Number(event.pathParameters.num1);
-  var num2 = Number(event.pathParameters.num2);
+  try {
+    const value = Calculator.MethodSum(
+      event.pathParameters.num1,
+      event.pathParameters.num2);
 
-  var response = null;
-
-  if (!num1 || !num2) {
-    var result = "";
-    if (!num1) {
-      result = "Num1 is invalid"
-    } else if (!num2){
-      result = "Num2 is invalid"
-    }
-    response = {
-      statusCode: 400,
-      body: result
-    }    
-  } else {
-    response = {
+    var response = {
       statusCode: 200,
-      body: JSON.stringify({result:num1+num2})
+      body: JSON.stringify({result: value})
     }
+    callback (null, response);
+  } catch (error) {
+    var response = {
+      statusCode: 400,
+      body: JSON.stringify(error.toString())
+    }
+    callback (null, response);
   }
-  callback (null, response);
 };
 
 module.exports.divide = (event, context, callback) => {

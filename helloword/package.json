@@ -9,5 +9,8 @@
   "devDependencies": {
     "jest": "^24.9.0",
     "serverless-offline": "5.10.1"
+  },
+  "scripts":{
+    "test": "jest"
   }
 }
