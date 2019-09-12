@@ -1,7 +1,5 @@
 'use strict';
-//    Validator of json inputs
-//https://github.com/serverless-projects/serverless-unit-test/blob/master/Utils.js
-//
+
 const Calculator = require('./business/Calculator');
 
 module.exports.helloWorld = (event, context, callback) => {
@@ -76,11 +74,7 @@ module.exports.divide = (event, context, callback) => {
     callback (null, response);
   }
 };
-//event.httpMethod
-//event.headers.<nameOfHeaders>
-//event.path
-//event.pathParameters.<name>
-//event.queryStringParameters
+
 module.exports.calculator = (event, context, callback) => {
   if (event.resource === "/calc/divide") {
     callback(null, this.divide(event, context, callback));
