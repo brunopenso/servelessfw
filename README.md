@@ -12,3 +12,6 @@ event.headers.<nameOfHeaders>
 event.path
 event.pathParameters.<name>
 event.queryStringParameters
+
+# DynamoDB local
+https://serverless.com/plugins/serverless-dynamodb-local/
