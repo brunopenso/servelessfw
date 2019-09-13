@@ -11,6 +11,8 @@ service: serverless-hello-world
 provider:
   name: aws
   runtime: nodejs10.x
+  environment:
+    DYNAMODB_TABLE: ${self:service}-${opt:stage, self:provider.stage}
 
 # The `functions` block defines what code to deploy
 functions:
@@ -42,6 +44,30 @@ functions:
           method: get
       - http:
           path: /calc/divide
-          method: get  
+          method: get
+  todo_create:
+    handler: todo.create
+    events:
+      - http:
+          path: /todo/create
+          method: get
+  todo_list:
+    handler: todo.list
+    events:
+      - http:
+          path: /todo/list
+          method: get
+
 plugins:
   - serverless-offline
+  - serverless-dynamodb-local
+custom:
+  dynamodb:
+    stages:
+      - dev
+  start:
+    port: 8000
+    inMemory: true
+    migrate: true
+  migration:
+    dir: offline/migrations
