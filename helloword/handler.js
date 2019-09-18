@@ -3,6 +3,7 @@
 const Calculator = require('./business/Calculator');
 
 module.exports.helloWorld = (event, context, callback) => {
+  console.log('Method hello world');
   const response = {
     statusCode: 200,
     headers: {
@@ -17,6 +18,7 @@ module.exports.helloWorld = (event, context, callback) => {
 };
 
 module.exports.sum = (event, context, callback) => {
+  console.log('Method sum');
   try {
     const value = Calculator.MethodSum(
       event.pathParameters.num1,
@@ -37,7 +39,7 @@ module.exports.sum = (event, context, callback) => {
 };
 
 module.exports.divide = (event, context, callback) => {
-
+  console.log('Method divide');
   if (!event.queryStringParameters) {
     const response = {
       statusCode: 400,
@@ -76,6 +78,7 @@ module.exports.divide = (event, context, callback) => {
 };
 
 module.exports.calculator = (event, context, callback) => {
+  console.log('Method calculator');
   if (event.resource === "/calc/divide") {
     callback(null, this.divide(event, context, callback));
   } else if (event.resource === "/calc/sum/{num1}/{num2}") {
