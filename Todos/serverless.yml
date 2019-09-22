@@ -65,10 +65,10 @@ functions:
           path: /user
           method: POST
       - http:
-          path: /user
+          path: /user/{id}
           method: GET
       - http:
-          path: /user
+          path: /user/{id}
           method: PUT
   todos:
     handler: handler.todos

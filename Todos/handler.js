@@ -10,11 +10,11 @@ const todoPost = require('./todos/post');
 
 module.exports.users = async event => {
   if (event.httpMethod === "GET") {
-    return userGet(event);
+    return await userGet(event);
   } else if (event.httpMethod === "POST") {
-    return userPost(event);
+    return await userPost(event);
   } else if (event.httpMethod === "PUT") {
-    return userPut(event);
+    return await userPut(event);
   } else {
     return {
       statusCode: 405,
@@ -25,11 +25,11 @@ module.exports.users = async event => {
 
 module.exports.todos = async event => {
   if (event.httpMethod === "GET") {
-    return todoGet(event);
+    return await todoGet(event);
   } else if (event.httpMethod === "POST") {
-    return todoPost(event);
+    return await todoPost(event);
   } else if (event.httpMethod === "DELETE") {
-    return todoDelete(event);
+    return await todoDelete(event);
   } else {
     return {
       statusCode: 405,
