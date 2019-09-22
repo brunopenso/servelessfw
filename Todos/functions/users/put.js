@@ -1,10 +1,10 @@
 'use strict';
 
-const isString = (obj => typeof obj === 'string' || obj instanceof String)
+const Util = require('../Util/Util');
 
 module.exports = async event => {
     //console.log(typeof event.body)
-    var params = isString(event.body) ? JSON.parse(event.body) : event.body;
+    var params = Util.isString(event.body) ? JSON.parse(event.body) : event.body;
     //console.log(params);
 
     //validate event.body against schema
