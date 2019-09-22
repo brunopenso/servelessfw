@@ -1,12 +1,12 @@
 'use strict';
 
-const userGet = require('./users/get');
-const userPut = require('./users/put');
-const userPost = require('./users/post');
+const userGet = require('./functions/users/get');
+const userPut = require('./functions/users/put');
+const userPost = require('./functions/users/post');
 
-const todoGet = require('./todos/get');
-const todoDelete = require('./todos/delete');
-const todoPost = require('./todos/post');
+const todoGet = require('./functions/todos/get');
+const todoDelete = require('./functions/todos/delete');
+const todoPost = require('./functions/todos/post');
 
 module.exports.users = async event => {
   if (event.httpMethod === "GET") {
