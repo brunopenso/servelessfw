@@ -1,0 +1,19 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "todo",
+  "type": "object",
+  "title": "Todo object",
+  "required": [
+    "text"
+  ],
+  "properties": {
+    "id": {
+      "$id": "#/properties/id",
+      "type": "string"
+    },
+    "text": {
+      "$id": "#/properties/text",
+      "type": "string"
+    }
+  }
+}

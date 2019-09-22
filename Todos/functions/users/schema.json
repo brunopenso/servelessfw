@@ -1,0 +1,23 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "user",
+  "type": "object",
+  "title": "User object",
+  "required": [
+    "mail"
+  ],
+  "properties": {
+    "mail": {
+      "$id": "#/properties/mail",
+      "type": "string"
+    },
+    "name": {
+        "$id": "#/properties/name",
+        "type": "string"
+    },
+    "birthDate": {
+        "$id": "#/properties/birthDate",
+        "type": "string"
+      }
+  }
+}
