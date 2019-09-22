@@ -68,7 +68,7 @@ functions:
           path: /user/{id}
           method: GET
       - http:
-          path: /user/{id}
+          path: /user
           method: PUT
   todos:
     handler: handler.todos
