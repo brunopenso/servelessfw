@@ -40,4 +40,6 @@ dynamoDB.createTable(todoTable, (err,data) => {
   }
 });
 
-module.exports = dynamoDB;
+const dynamoClient = new AWS.DynamoDB.DocumentClient(options);
+
+module.exports = dynamoClient;

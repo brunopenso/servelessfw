@@ -27,9 +27,10 @@ module.exports.create = (event, context, callback) => {
       updatedAt: timestamp,
     },
   };
-  console.log(JSON.stringify(params));
+
+  
   // write the todo to the database
-  dynamodb.putItem(params, (error) => {
+  dynamodb.put(params, (error) => {
     // handle potential errors
     if (error) {
       console.error(error);
