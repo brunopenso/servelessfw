@@ -1,0 +1,18 @@
+{
+  "name": "todos",
+  "version": "1.0.0",
+  "description": "",
+  "main": "handler.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "serverless": "^1.52.2",
+    "serverless-dynamodb-local": "^0.2.38"
+  },
+  "devDependencies": {
+    "serverless-offline": "^5.11.0"
+  }
+}
