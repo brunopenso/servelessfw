@@ -62,13 +62,13 @@ functions:
     handler: handler.users
     events:
       - http:
-          path: /users
+          path: /user
           method: POST
       - http:
-          path: /users
+          path: /user
           method: GET
       - http:
-          path: /users
+          path: /user
           method: PUT
   todos:
     handler: handler.todos

@@ -1,18 +1,39 @@
 'use strict';
 
-module.exports.hello = async event => {
-  return {
-    statusCode: 200,
-    body: JSON.stringify(
-      {
-        message: 'Go Serverless v1.0! Your function executed successfully!',
-        input: event,
-      },
-      null,
-      2
-    ),
-  };
+const userGet = require('./users/get');
+const userPut = require('./users/put');
+const userPost = require('./users/post');
 
-  // Use this code if you don't use the http event with the LAMBDA-PROXY integration
-  // return { message: 'Go Serverless v1.0! Your function executed successfully!', event };
+const todoGet = require('./todos/get');
+const todoDelete = require('./todos/delete');
+const todoPost = require('./todos/post');
+
+module.exports.users = async event => {
+  if (event.httpMethod === "GET") {
+    return userGet(event);
+  } else if (event.httpMethod === "POST") {
+    return userPost(event);
+  } else if (event.httpMethod === "PUT") {
+    return userPut(event);
+  } else {
+    return {
+      statusCode: 405,
+      body: "Invalid internal route"
+    };
+  }
+};
+
+module.exports.todos = async event => {
+  if (event.httpMethod === "GET") {
+    return todoGet(event);
+  } else if (event.httpMethod === "POST") {
+    return todoPost(event);
+  } else if (event.httpMethod === "DELETE") {
+    return todoDelete(event);
+  } else {
+    return {
+      statusCode: 405,
+      body: "Invalid internal route"
+    };
+  }
 };
