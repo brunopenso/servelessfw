@@ -20,7 +20,12 @@ class ValidationUtils {
             "required": ["name"],
             "additionalProperties": false
         }
-
+        /*
+        fs.readFile("../users/schema.json", "utf8", function (err, data) {
+            if (err) throw err;
+            console.log(data.toString());
+        });
+        */
         this.v.addSchema(schema, '/Taco');
     }
     validate(object, type) {
