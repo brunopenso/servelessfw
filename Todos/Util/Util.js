@@ -3,7 +3,7 @@
 const isString = (obj => typeof obj === 'string' || obj instanceof String);
 const isNumber = (obj => typeof obj === 'number' || obj instanceof Number);
 
-exports = {
+module.exports = {
     isString: isString,
     isNumber: isNumber
 }
