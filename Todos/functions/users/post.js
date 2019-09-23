@@ -1,6 +1,6 @@
 'use strict';
 
-const Util = require('../Util/Util');
+const Util = require('../../Util/Util');
 
 module.exports = async event => {
   //console.log(typeof event.body)
