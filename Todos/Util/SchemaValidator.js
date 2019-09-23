@@ -8,10 +8,10 @@ class ValidationUtils {
     }
     setup() {
         console.log(this.v);
-        fs.readFile("./functions/users/schema.json", "utf8", function (err, data) {
+        fs.readFile("./functions/users/schema.json", "utf8", (err, data) => {
             if (err) throw err;
             var content = data.toString();
-            setup1(content);
+            this.v.addSchema(content, JSON.parse(content).$id);
         });
         /*fs.readFile("./functions/todos/schema.json", "utf8", function (err, data) {
             if (err) throw err;
@@ -20,7 +20,7 @@ class ValidationUtils {
             this.v.addSchema(schema, JSON.parse(schema).$id);
         });*/
     }
-    setup1 = (content) => {
+    setup1(content) {
         console.log(content);
         //this.v.addSchema(content, JSON.parse(content).$id);
     }
