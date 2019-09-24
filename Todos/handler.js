@@ -8,11 +8,7 @@ const todoGet = require('./functions/todos/get');
 const todoDelete = require('./functions/todos/delete');
 const todoPost = require('./functions/todos/post');
 
-const Validator = require('./Util/SchemaValidator');
-
 module.exports.users = async event => {
-  var v = new Validator();
-  v.setup();
   if (event.httpMethod === "GET") {
     return await userGet(event);
   } else if (event.httpMethod === "POST") {

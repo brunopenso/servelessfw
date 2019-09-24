@@ -1,13 +1,14 @@
 'use strict';
 
 const Util = require('../../Util/Util');
+const Validator = require('../../Util/SchemaValidator');
+
 
 module.exports = async event => {
   //console.log(typeof event.body)
-  var params = Util.isString(event.body) ? JSON.parse(event.body) : event.body;
-  //console.log(params);
-  
+  var params = Util.isString(event.body) ? JSON.parse(event.body) : event.body;  
   //validate event.body against schema
+
   if (!params.mail || params.mail === "") {
     return {
       statusCode: 400,
